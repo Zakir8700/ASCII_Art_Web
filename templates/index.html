@@ -8,7 +8,11 @@
 <body>
 
     <h1>ASCII Art Generator</h1>
-
+    {% if error %}
+        <div style="background:#ffdddd; color:#900; border:1px solid #f00; padding:10px; margin-bottom:20px; border-radius:8px;">
+            {{ error }}
+        </div>
+    {% endif %}
     <form method="POST" enctype="multipart/form-data">
         <label for="image">Upload Image:</label><br>
         <input type="file" name="image" id="image" required><br>
