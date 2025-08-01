@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ASCII Art Generator</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <h1>ASCII Art Generator</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+        <label for="image">Upload Image:</label><br>
+        <input type="file" name="image" id="image" required><br>
+
+        <label for="ascii_chars">Enter ASCII characters (dark to light):</label><br>
+        <input type="text" name="ascii_chars" id="ascii_chars" value="@#S%?*+;:,."><br>
+
+        <button type="submit">Generate ASCII Art</button>
+    </form>
+
+    {% if ascii_art %}
+        <div class="output-container">
+            <h2>Your ASCII Art</h2>
+            <textarea readonly>{{ ascii_art }}</textarea>
+        </div>
+    {% endif %}
+
+</body>
+</html>
