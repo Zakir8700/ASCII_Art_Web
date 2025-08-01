@@ -43,6 +43,7 @@ def index():
             filepath = os.path.join(app.config["UPLOAD_FOLDER"], filename)
             image_file.save(filepath)
             ascii_art = convert_image_to_ascii(filepath, ascii_chars)
+        os.remove(filepath)
     return render_template("index.html", ascii_art=ascii_art)
 
 if __name__ == "__main__":
